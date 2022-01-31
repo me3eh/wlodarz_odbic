@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://textures/icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/SpawnGround.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Camera.gd" type="Script" id=4]
+[ext_resource path="res://scenes/DeathModal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://StaticBody2D.gd" type="Script" id=6]
+[ext_resource path="res://textures/ammo.png" type="Texture" id=7]
+[ext_resource path="res://scenes/testingScene.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/SpawnItems.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/SpawnFlyingEnemies.tscn" type="PackedScene" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1476.06, 16.8952 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 34, -23 )
+
+[node name="SpawnItems" parent="." instance=ExtResource( 9 )]
+
+[node name="SpawnFlyingEnemies" parent="." instance=ExtResource( 10 )]
+position = Vector2( 164, -1242 )
+
+[node name="SpawnGround" parent="." instance=ExtResource( 3 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 164, -154 )
+gravity_scale = 27.73
+continuous_cd = 2
+linear_velocity = Vector2( 10, 0 )
+linear_damp = 1.0
+
+[node name="testingScene2" parent="Player" instance=ExtResource( 8 )]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2( 0, 412 )
+scale = Vector2( 3.41544, 1.96027 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2( 9.07643, -171.344 )
+shape = SubResource( 1 )
+one_way_collision_margin = 4.3
+
+[node name="Icon" type="Sprite" parent="Ground/CollisionShape2D"]
+use_parent_material = true
+position = Vector2( 321.133, -0.249998 )
+scale = Vector2( 55.5222, 0.739401 )
+texture = ExtResource( 2 )
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 0, 7 )
+scale = Vector2( 1.01229, 1 )
+current = true
+zoom = Vector2( 3, 3 )
+smoothing_speed = 50.0
+script = ExtResource( 4 )
+
+[node name="Score_label" type="Label" parent="Camera"]
+margin_left = -750.0
+margin_top = -1249.0
+margin_right = -705.0
+margin_bottom = -1235.0
+rect_scale = Vector2( 4.94401, 6.50659 )
+text = "Score:"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ammo_label" type="Label" parent="Camera"]
+margin_left = 516.65
+margin_top = -1249.0
+margin_right = 563.65
+margin_bottom = -1235.0
+rect_scale = Vector2( 4.53376, 5.89249 )
+text = ":"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ammo" type="Sprite" parent="Camera"]
+position = Vector2( 463.306, -1216 )
+scale = Vector2( 0.563531, 0.570457 )
+texture = ExtResource( 7 )
+
+[node name="death_modal" parent="Camera" instance=ExtResource( 5 )]
+visible = false
+margin_left = 30.6236
+margin_top = 115.0
+margin_right = 30.6236
+margin_bottom = 115.0
+rect_scale = Vector2( 2.35755, 2.55505 )
