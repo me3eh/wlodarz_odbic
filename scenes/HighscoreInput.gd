@@ -18,7 +18,7 @@ func _on_Button_pressed():
 		sqlite.replaceSmallestScore( $LineEdit.text, player_score)
 		visible = false
 		if(initiating_component != null):
-			initiating_component.show_top_highscore()
+			initiating_component.show_top_local_highscore()
 
 func init_component(score, component):
 #	show popup, where player needs to signup their name

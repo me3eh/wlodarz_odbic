@@ -24,10 +24,8 @@ func spawn_walls():
 	var spawn_enemy_instance = FlyingEnemy.instance()
 	match(type_of_enemy):
 		0:
-			print(0)
 			spawn_enemy_instance = bottleEnemy.instance()
 		1:
-			print(1)
 			spawn_enemy_instance = FlyingEnemy.instance()
 	add_child(spawn_enemy_instance)
 	spawn_enemy_instance.global_position.y = spawn_position.y

@@ -8,11 +8,11 @@ var score_label_default = ''
 var ammo_label_default = ''
 onready var score_label = get_parent().get_node("Camera").get_children()[0]
 onready var ammo_label = get_parent().get_node("Camera").get_children()[1]
-#var modal = preload("res://scene/DeathModal")
 onready var modal = get_parent().get_node("Camera").get_node('death_modal')
 onready var ammo_amount = 10
 onready var timer = get_node("Timer")
 onready var kinematic_power = 100000
+
 func _ready():
 	initial_height = global_position.y
 	high_score = initial_height
@@ -53,3 +53,4 @@ func add_ammo():
 func modal_visible( death_info ):
 	queue_free()
 	modal.activate_modal( death_info, floor( high_score / 100 ) )
+

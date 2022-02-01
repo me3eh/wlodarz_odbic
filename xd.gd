@@ -49,7 +49,7 @@ func explode():
 			
 			
 		add_child(shard)
-		print(shard)
+#		print(shard)
 		
 	#this will make our base sprite invisible
 	color.a = 0

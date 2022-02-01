@@ -5,7 +5,7 @@
 [node name="BottleEnemy" type="KinematicBody2D" groups=["enemy"]]
 position = Vector2( 435, 270 )
 rotation = -2.61799
-collision_layer = 128
+collision_layer = 160
 collision_mask = 0
 __meta__ = {
 "_edit_group_": true

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://OtherMontserrat.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/SQLNode.tscn" type="PackedScene" id=2]
 [ext_resource path="res://DeathModal.gd" type="Script" id=3]
 [ext_resource path="res://scenes/HighscoreInput.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/HighscoreOnlineInput.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -13,7 +14,6 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=3]
 size = 30
 outline_size = 1
-outline_color = Color( 0.027451, 0.027451, 0.027451, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -57,23 +57,26 @@ __meta__ = {
 }
 
 [node name="top_highscore_label" type="Label" parent="ColorRect"]
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color( 1, 0.00784314, 0.00784314, 1 )
 margin_left = 352.232
 margin_top = 90.3695
 margin_right = 657.232
 margin_bottom = 230.369
 custom_fonts/font = SubResource( 3 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="top_online_highscore_label" type="Label" parent="ColorRect"]
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color( 0.0117647, 0.0509804, 0.647059, 1 )
 margin_left = 9.0
 margin_top = 90.0
 margin_right = 314.0
 margin_bottom = 230.0
 custom_fonts/font = SubResource( 3 )
+text = "Loading online scores..."
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -109,15 +112,27 @@ __meta__ = {
 
 [node name="HighscoreInput" parent="." instance=ExtResource( 4 )]
 visible = false
-anchor_left = -1.036
-anchor_top = -0.694
-anchor_right = 0.0
-anchor_bottom = -0.012
-margin_left = -269.125
-margin_top = -304.671
-margin_right = -865.862
-margin_bottom = -1003.04
+anchor_left = -0.733
+anchor_top = -0.529
+anchor_right = -0.021
+anchor_bottom = 0.0
+margin_left = -282.256
+margin_top = -322.13
+margin_right = -692.368
+margin_bottom = -863.826
 rect_scale = Vector2( 1.51912, 1.41698 )
+
+[node name="HighscoreOnlineInput" parent="." instance=ExtResource( 5 )]
+visible = false
+anchor_left = -0.734
+anchor_top = -0.529
+anchor_right = -0.021
+anchor_bottom = 0.0
+margin_left = -281.68
+margin_top = -322.13
+margin_right = -692.368
+margin_bottom = -863.826
+rect_scale = Vector2( 1.5238, 1.41449 )
 
 [connection signal="pressed" from="ColorRect/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="ColorRect/ExitButton" to="." method="_on_ExitButton_pressed"]

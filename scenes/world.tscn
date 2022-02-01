@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://textures/icon.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://scenes/testingScene.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/SpawnItems.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/SpawnFlyingEnemies.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/FlyingEnemy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/BottleEnemy.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1476.06, 16.8952 )
@@ -92,3 +94,9 @@ margin_top = 115.0
 margin_right = -97.7981
 margin_bottom = 115.0
 rect_scale = Vector2( 2.35755, 2.55505 )
+
+[node name="FlyingEnemy" parent="." instance=ExtResource( 11 )]
+position = Vector2( 95, -724 )
+
+[node name="BottleEnemy" parent="." instance=ExtResource( 12 )]
+position = Vector2( 432, -955 )

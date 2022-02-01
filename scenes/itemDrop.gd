@@ -11,11 +11,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-#	print(global_position)
 #	if global_position.y > player.global_position.y and abs(global_position.y - player.global_position.y) > 7000:
 #		queue_free()
-#	print(global_position.y)
-#	player.gl
 	pass
 func dissapear():
 	queue_free()

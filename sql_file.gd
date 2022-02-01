@@ -10,7 +10,6 @@ func _ready():
 	pass
 
 func replaceSmallestScore( playerName, playerScore ):
-#	copy_from_res()	
 	db = SQLite.new()
 	db.path = db_name	
 	db.open_db()
@@ -22,7 +21,7 @@ func replaceSmallestScore( playerName, playerScore ):
 	" where score= ( select min(score) from " + tableName + "));" ) )
 	
 	print( db.error_message)
-#	db.commit()
+	
 	db.close_db()
 func commitDataToDB():
 	db = SQLite.new()
@@ -41,7 +40,7 @@ func get_top_5_highscores():
 	db.open_db()
 	db.query("select * from " + tableName + " order by score desc;")
 	
-	var k = "Top highscores:\n"
+	var k = "Top local highscores:\n"
 	for i in range(0, db.query_result.size()):
 		k += String(i + 1) + ': ' 
 		k += String(db.query_result[i]["name"])
@@ -60,11 +59,3 @@ func get_minimal_score():
 	var queryResult = db.query_result[0].get( 'min(score)' )
 	db.close_db()
 	return queryResult
-	
-func _process(delta):
-	pass
-#func copy_from_res():
-#	var dir = Directory.new()
-#	var files = []
-#	print( dir.remove("res://datastore/datastore.db") )	
-#	print( dir.copy("user://datastore.db", "res://datastore/datastore.db") )
