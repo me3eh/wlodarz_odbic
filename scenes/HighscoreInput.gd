@@ -19,11 +19,9 @@ func _on_Button_pressed():
 		visible = false
 		if(initiating_component != null):
 			initiating_component.show_top_highscore()
-			print("nie jest nullem")
-		print("jest nullem")			
-	pass
-	
+
 func init_component(score, component):
+#	show popup, where player needs to signup their name
 	visible = true
 	player_score = score
 	initiating_component = component
