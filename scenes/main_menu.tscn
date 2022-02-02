@@ -61,13 +61,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -240.0
-margin_top = 7.0
+margin_top = -33.0
 margin_right = 240.0
-margin_bottom = 88.0
+margin_bottom = 48.0
 grow_horizontal = 0
 grow_vertical = 0
 custom_fonts/font = SubResource( 2 )
-text = "Options"
+text = "Select Character"
 __meta__ = {
 "_edit_use_anchors_": false
 }

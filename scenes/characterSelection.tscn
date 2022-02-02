@@ -1,0 +1,127 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://OtherMontserrat.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://character_selection.gd" type="Script" id=2]
+[ext_resource path="res://textures/student-modified.png" type="Texture" id=3]
+[ext_resource path="res://textures/mario.png" type="Texture" id=4]
+[ext_resource path="res://textures/Arrow_east.svg.png" type="Texture" id=5]
+[ext_resource path="res://textures/amogus.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_size = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+outline_size = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+outline_size = 2
+font_data = ExtResource( 1 )
+
+[node name="CharacterSelection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 576.0
+margin_bottom = 1024.0
+rect_scale = Vector2( 0.995419, 1 )
+color = Color( 0.478431, 0.0235294, 0.662745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="marioButton" type="Button" parent="ColorRect"]
+margin_left = 200.92
+margin_top = 386.56
+margin_right = 375.92
+margin_bottom = 461.56
+custom_fonts/font = SubResource( 1 )
+text = "Select mario"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="marioSprite" type="Sprite" parent="ColorRect"]
+position = Vector2( 287.316, 292.56 )
+scale = Vector2( 0.609747, 0.609747 )
+texture = ExtResource( 4 )
+
+[node name="studentButton" type="Button" parent="ColorRect"]
+margin_left = 200.92
+margin_top = 646.56
+margin_right = 375.92
+margin_bottom = 721.56
+custom_fonts/font = SubResource( 2 )
+text = "Select student"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="studentSprite" type="Sprite" parent="ColorRect"]
+position = Vector2( 287.316, 563.56 )
+scale = Vector2( 0.248232, 0.248232 )
+texture = ExtResource( 3 )
+
+[node name="SusButton" type="Button" parent="ColorRect"]
+margin_left = 200.92
+margin_top = 882.56
+margin_right = 375.92
+margin_bottom = 957.56
+custom_fonts/font = SubResource( 3 )
+text = "Be sus"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="susSprite" type="Sprite" parent="ColorRect"]
+position = Vector2( 290.719, 809.976 )
+scale = Vector2( 0.184942, 0.184942 )
+texture = ExtResource( 6 )
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 200.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="arrow" type="Sprite" parent="BackButton"]
+position = Vector2( 88, 36 )
+rotation = 3.14159
+scale = Vector2( 0.0637066, 0.0637066 )
+texture = ExtResource( 5 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 69.0
+margin_top = 109.0
+margin_right = 519.0
+margin_bottom = 204.0
+rect_clip_content = false
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[rainbow sat=5][center][tornado radius=11]Selected Mario"
+text = "Selected Mario"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="ColorRect/marioButton" to="." method="_on_marioButton_pressed"]
+[connection signal="pressed" from="ColorRect/studentButton" to="." method="_on_studentButton_pressed"]
+[connection signal="pressed" from="ColorRect/SusButton" to="." method="_on_SusButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

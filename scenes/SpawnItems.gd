@@ -7,13 +7,12 @@ var gx = 100
 var spawn_position = global_position + Vector2( 100, 0)
 onready var player = get_parent().get_node("Player")
 func _ready():
-	pass # Replace with function body.
+	pass
 	
 func _process(delta):
 	if( weakref(player).get_ref() ):
 		if spawn_position.distance_to(player.global_position) < 3000:
 			spawn_walls()
-	pass
 
 func spawn_walls():
 	var spawn_item_instance = scene.instance()
@@ -23,6 +22,3 @@ func spawn_walls():
 	spawn_item_instance.global_position.y = spawn_position.y - rng.randf_range(0, 4000.0)
 	spawn_item_instance.global_position.x = spawn_position.x - rng.randf_range(-380.0, 380.0)
 	spawn_position.y = spawn_position.y - gw
-	
-#	spawn_position.x = spawn_position.x - 
-	

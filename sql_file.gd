@@ -5,8 +5,9 @@ var db_name = "user://datastore"
 onready var label = $Label
 
 var tableName = "Highscore"
+var tabName = "CharacterChoice"
 
-func _ready():	
+func _ready():
 	pass
 
 func replaceSmallestScore( playerName, playerScore ):
@@ -40,14 +41,14 @@ func get_top_5_highscores():
 	db.open_db()
 	db.query("select * from " + tableName + " order by score desc;")
 	
-	var k = "Top local highscores:\n"
+	var string_in_label = "Top local highscores:\n"
 	for i in range(0, db.query_result.size()):
-		k += String(i + 1) + ': ' 
-		k += String(db.query_result[i]["name"])
-		k += " " + String(db.query_result[i]["score"])
-		k += "\n"
+		string_in_label += String(i + 1) + ': ' 
+		string_in_label += String(db.query_result[i]["name"])
+		string_in_label += " " + String(db.query_result[i]["score"])
+		string_in_label += "\n"
 	db.close_db()
-	return k
+	return string_in_label
 	
 func get_minimal_score():
 	
@@ -59,3 +60,23 @@ func get_minimal_score():
 	var queryResult = db.query_result[0].get( 'min(score)' )
 	db.close_db()
 	return queryResult
+	
+func get_character_selection():
+	db = SQLite.new()
+	db.path = db_name
+	db.open_db()
+	db.query("select which_character from " + tabName + " where id = 1;" )
+	print( db.query_result )
+	var queryResult = db.query_result[0].get( 'which_character' )
+	db.close_db()
+	return queryResult
+func set_character_selection( player_selection ):
+	db = SQLite.new()
+	db.path = db_name
+	db.open_db()
+	db.query("update " + tabName + " set which_character = " + String( player_selection ) + " where id = 1;" )
+#	print( db.query_result )
+#	var queryResult = db.query_result[0].get( 'which_character' )
+	db.close_db()
+#	return queryResult
+	

@@ -23,8 +23,7 @@ func _on_StartButton_pressed():
 
 
 func _on_OptionsButton_pressed():
-	pass # Replace with function body.
-
+	get_tree().change_scene("res://scenes/characterSelection.tscn")
 
 func _on_QuitButton_pressed():
 	get_tree().quit()
