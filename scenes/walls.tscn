@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://textures/rock.jpg" type="Texture" id=1]
 [ext_resource path="res://walls.gd" type="Script" id=2]
+[ext_resource path="res://textures/cheatsheet.png" type="Texture" id=3]
+[ext_resource path="res://textures/brick.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 516.17, 146.518 )
@@ -25,38 +27,57 @@ position = Vector2( -740, 6 )
 scale = Vector2( 0.3, 3 )
 shape = SubResource( 1 )
 
+[node name="Brick" type="Sprite" parent="left"]
+position = Vector2( -7.62939e-05, 3.8147e-06 )
+scale = Vector2( 2.32112, 0.756614 )
+texture = ExtResource( 4 )
+
 [node name="Rock" type="Sprite" parent="left"]
 scale = Vector2( 0.691, 0.298 )
 texture = ExtResource( 1 )
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="left/Rock"]
-position = Vector2( 1196.33, -33.557 )
-scale = Vector2( 48.304, -49.358 )
+[node name="Cheatsheet" type="Sprite" parent="left"]
+scale = Vector2( 1.92349, 0.427359 )
+texture = ExtResource( 3 )
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="left"]
+position = Vector2( 826.664, -9.99999 )
+scale = Vector2( 33.3781, -14.7087 )
 mode = 3
 physics_material_override = SubResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="left/Rock/RigidBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left/RigidBody2D2"]
 position = Vector2( -11.5362, -0.543897 )
 scale = Vector2( -0.138207, 0.289887 )
 shape = SubResource( 3 )
 
-[node name="prawa" type="CollisionShape2D" parent="."]
+[node name="right" type="CollisionShape2D" parent="."]
 position = Vector2( 759.595, 6 )
 scale = Vector2( 0.3, 3 )
 shape = SubResource( 1 )
 
-[node name="Rock" type="Sprite" parent="prawa"]
+[node name="Rock" type="Sprite" parent="right"]
 position = Vector2( 30.6802, -7.62939e-06 )
 scale = Vector2( 0.746588, 0.297797 )
 texture = ExtResource( 1 )
 flip_h = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="prawa/Rock"]
-position = Vector2( -635.385, 6.71601 )
-scale = Vector2( 33.4003, -14.719 )
+[node name="Brick" type="Sprite" parent="right"]
+position = Vector2( 33.0166, 0 )
+scale = Vector2( 2.48691, 0.756614 )
+texture = ExtResource( 4 )
+
+[node name="Cheatsheet" type="Sprite" parent="right"]
+position = Vector2( 38.2904, 0 )
+scale = Vector2( 2.08767, 0.427359 )
+texture = ExtResource( 3 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="right"]
+position = Vector2( -443.69, 2 )
+scale = Vector2( 24.9363, -4.38327 )
 mode = 3
 physics_material_override = SubResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="prawa/Rock/RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right/RigidBody2D"]
 position = Vector2( -0.144501, 0.456277 )
 shape = SubResource( 3 )

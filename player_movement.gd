@@ -58,16 +58,22 @@ func _process(delta):
 		modal_visible( " Fell down :( ")
 	if( timer.get_time_left() <= 1 && ammo_amount == 0 ):
 		modal_visible( "No ammo")
-#	print( Input.get_gyroscope() )
 	
+	apply_central_impulse( Vector2( Input.get_gyroscope().y * 500, 0 ) )
 
 func ammo_used():
 	ammo_amount -= 1
 	ammo_label.text = ":" + String(ammo_amount)
 	
 func add_ammo():
-	ammo_amount += 10
-	additional_points_from_eliminations += 10
+	if type_of_character == 0:
+		ammo_amount += 20
+	else:
+		ammo_amount += 10
+	if type_of_character == 1:
+		additional_points_from_eliminations += 20
+	else:
+		additional_points_from_eliminations += 10
 	ammo_label.text = ":" + String(ammo_amount)
 	
 func modal_visible( death_info ):
@@ -75,5 +81,8 @@ func modal_visible( death_info ):
 	modal.activate_modal( death_info, high_score )
 
 func add_points_from_elimination():
-	additional_points_from_eliminations += 20
+	if type_of_character == 1:
+		additional_points_from_eliminations += 70
+	else:
+		additional_points_from_eliminations += 20
 	print( "added points")
