@@ -59,6 +59,7 @@ __meta__ = {
 
 [node name="top_highscore_label" type="Label" parent="ColorRect"]
 modulate = Color( 1, 0.00784314, 0.00784314, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
 margin_left = 343.097
 margin_top = 90.3699
 margin_right = 648.097

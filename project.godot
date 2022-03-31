@@ -64,7 +64,7 @@ _global_script_class_icons={
 
 config/name="Wlodarz_Odbic"
 run/main_scene="res://scenes/main_menu.tscn"
-config/icon="res://textures/icon.png"
+config/icon="res://textures/obrazek.png"
 
 [display]
 
